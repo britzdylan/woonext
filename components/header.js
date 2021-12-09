@@ -65,7 +65,7 @@ export default function Header() {
             </svg>
           </div>
           <div className='header-icon relative'>
-            <span class=' top-0 right-0 absolute  h-2 w-2 rounded-full bg-red-600 flex flex-row items-center justify-center text-white'>
+            <span className=' top-0 right-0 absolute  h-2 w-2 rounded-full bg-red-600 flex flex-row items-center justify-center text-white'>
               <small></small>
             </span>
             <svg

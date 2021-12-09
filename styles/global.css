@@ -1,7 +1,8 @@
 /* FONTS */
 
 * {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
 }
 
 /* end of fonts */
@@ -136,4 +137,100 @@ main {
 
 #menuToggle input:checked ~ ul {
   transform: none;
+}
+
+/* ================= Breadcrumbs =================*/
+#breadcrumbs {
+  @apply py-6;
+}
+
+/* ============= SHOP ============= */
+
+#shop-container {
+  @apply w-full flex flex-row items-start justify-start;
+}
+
+#shop-filters {
+  @apply w-1/4 h-full;
+}
+
+#products-container {
+  @apply w-3/4 h-full px-8 grid grid-cols-3 gap-4;
+}
+
+.filter-container {
+  @apply border p-6 rounded-md mb-8;
+}
+
+.filter-container > header {
+  @apply flex flex-row items-center justify-between;
+}
+
+.filter-container > header > p {
+  @apply text-lg font-bold;
+}
+.shop-header {
+  @apply text-center py-8;
+}
+
+.shop-header > h1 {
+  @apply text-4xl font-bold leading-loose;
+}
+
+#filter-bar {
+  @apply border rounded-md flex flex-row items-center justify-between px-6 py-1 mb-8;
+}
+
+#filter-bar > .quantity-select {
+  @apply flex flex-row items-center;
+}
+
+#filter-bar > .quantity-select > p {
+  @apply mr-2;
+}
+
+.quantity-select-label {
+  @apply font-light text-lg cursor-pointer border-b border-transparent hover:border-blue-500;
+}
+
+.quantity-select-label.active {
+  @apply text-blue-500 font-bold;
+}
+
+.attribute-term {
+  position: relative;
+  padding-left: 22px;
+}
+.attribute-term::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -7px;
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #bababa;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.product {
+  @apply rounded-md bg-gray-100 p-4 text-center flex flex-col items-center;
+}
+
+.product > img {
+  @apply w-72 mx-auto;
+}
+
+.product > .title {
+  @apply text-lg font-bold mb-4;
+}
+
+.product > .price {
+  @apply mb-4;
+}
+
+.product > button {
+  @apply py-3 px-6 bg-blue-500 w-full text-white font-bold rounded-md mt-auto;
 }

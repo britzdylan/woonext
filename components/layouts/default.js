@@ -24,7 +24,7 @@ export default function Layout({ children }) {
       <main>
         <Header />
         <MobileNav />
-        {children}
+        <main className='container mx-auto lg:p-0 px-4'> {children}</main>
       </main>
     </>
   );

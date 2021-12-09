@@ -4,9 +4,9 @@ import logo from '../public/logo.svg';
 
 export default function MobileNav() {
   return (
-    <nav class='mobile-nav' role='navigation'>
+    <nav className='mobile-nav' role='navigation'>
       <div id='menuToggle'>
-        <input class='checkbox' type='checkbox' />
+        <input className='checkbox' type='checkbox' />
         <span></span>
         <span></span>
         <span></span>
@@ -20,7 +20,7 @@ export default function MobileNav() {
             />
           </div>
           <div
-            class='mb-8 flex flex-row items-center justify-center px-4'
+            className='mb-8 flex flex-row items-center justify-center px-4'
             id='globalSearch'>
             <div className='search w-full mx-auto'>
               <input type='text' placeholder='Search products...' />
@@ -43,28 +43,28 @@ export default function MobileNav() {
           </div>
           <li>
             <Link href='#'>
-              <p class='text-3xl  text-center cursor-pointer hover:bg-blue-500 hover:text-white py-8 text-gray-600'>
+              <p className='text-3xl  text-center cursor-pointer hover:bg-blue-500 hover:text-white py-8 text-gray-600'>
                 Home
               </p>
             </Link>
           </li>
           <li>
             <Link href='#'>
-              <p class='text-3xl  text-center cursor-pointer hover:bg-blue-500 hover:text-white py-8 text-gray-600'>
+              <p className='text-3xl  text-center cursor-pointer hover:bg-blue-500 hover:text-white py-8 text-gray-600'>
                 Shop
               </p>
             </Link>
           </li>
           <li>
             <Link href='#'>
-              <p class='text-3xl  text-center cursor-pointer hover:bg-blue-500 hover:text-white py-8 text-gray-600'>
+              <p className='text-3xl  text-center cursor-pointer hover:bg-blue-500 hover:text-white py-8 text-gray-600'>
                 About
               </p>
             </Link>
           </li>
           <li>
             <Link href='#'>
-              <p class='text-3xl  text-center cursor-pointer hover:bg-blue-500 hover:text-white py-8 text-gray-600'>
+              <p className='text-3xl  text-center cursor-pointer hover:bg-blue-500 hover:text-white py-8 text-gray-600'>
                 Contact
               </p>
             </Link>
@@ -88,7 +88,7 @@ export default function MobileNav() {
           </svg>
         </div>
         <div className='header-icon relative'>
-          <span class='top-0 right-0 absolute  h-2 w-2 rounded-full bg-red-600 flex flex-row items-center justify-center text-white'>
+          <span className='top-0 right-0 absolute  h-2 w-2 rounded-full bg-red-600 flex flex-row items-center justify-center text-white'>
             <small></small>
           </span>
           <svg
