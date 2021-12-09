@@ -2,7 +2,8 @@
 // import { useSetRecoilState, useRecoilValue } from 'recoil';
 // import { productSettingsState } from '../../store/state/settings';
 // import { getWoocommerceProductSettings } from '../../lib/wc_api';
-
+import Header from '../header';
+import MobileNav from '../mobileMenu';
 export default function Layout({ children }) {
   // const setProdutSettings = useSetRecoilState(productSettingsState);
   // const productSettings = useRecoilValue(productSettingsState);
@@ -21,7 +22,8 @@ export default function Layout({ children }) {
   return (
     <>
       <main>
-        <h1>Layout</h1>
+        <Header />
+        <MobileNav />
         {children}
       </main>
     </>
