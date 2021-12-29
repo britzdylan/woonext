@@ -2,6 +2,7 @@
   "name": "woonext",
   "private": true,
   "scripts": {
+    "tail" : "npx tailwindcss -i ./styles/tailwind.css -o ./styles/output.css --watch",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
