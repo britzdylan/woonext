@@ -302,3 +302,15 @@ main {
 .price.sale {
   @apply mr-2;
 }
+
+.category-card {
+  @apply rounded-md bg-gray-100 p-4 text-center flex flex-col items-center;
+}
+
+.category-card > img {
+  @apply w-72 mx-auto;
+}
+
+.category-card > button {
+  @apply py-3 px-6 bg-blue-500 w-full text-white font-bold rounded-md mt-12;
+}

@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export default function Pagination({ products }) {
+export default function Pagination({ total }) {
   const router = useRouter();
   const { page } = router.query;
 
-  return products === 9 ? (
+  return total === 9 ? (
     <div id='shop-pagination-container'>
       <Link
         href={{
@@ -47,7 +47,7 @@ export default function Pagination({ products }) {
           </Link>
         ) : null}
         <p className={'active page-number'}>{page ? page : 1}</p>
-        {products.length >= 9 ? (
+        {total.length >= 9 ? (
           <Link
             href={{
               pathname: '/shop',

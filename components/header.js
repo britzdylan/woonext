@@ -21,8 +21,8 @@ export default function Header() {
         <Link href='/shop'>
           <p className='navLink'>Shop</p>
         </Link>
-        <Link href='/'>
-          <p className='navLink'>About</p>
+        <Link href='/shop/categories'>
+          <p className='navLink'>Category Grid</p>
         </Link>
         <Link href='/'>
           <p className='navLink'>Contact</p>

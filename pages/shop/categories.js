@@ -1,5 +1,4 @@
 import {
-  getProducts,
   getProductCategories,
   getAttributes,
   getAttributeTerms,
@@ -9,7 +8,7 @@ import {
 import { useRouter } from 'next/router';
 
 // components
-import ProductCard from '../../components/products/product-card';
+
 import ShopHeader from '../../components/shop/header';
 import Attributes from '../../components/shop/attributes';
 import Tags from '../../components/shop/tags';
@@ -17,22 +16,22 @@ import Categories from '../../components/shop/categories';
 import Pagination from '../../components/shop/pagination';
 import Filter from '../../components/shop/filter';
 import BreadCrumbs from '../../components/shop/breadcrumbs';
-
-export default function AllProducts({ categories, products, attr, tags }) {
-  // ================================================= variables =================================================
-
+import CategoryCard from '../../components/shop/category-card';
+export default function CategoriesGrid({ categories, attr, tags }) {
   const router = useRouter();
   console.log(router);
 
-  const paths = [{ title: 'shop', url: '/shop' }];
-
+  const paths = [
+    { title: 'shop', url: '/shop' },
+    { title: 'categories', url: '/categories' },
+  ];
   return (
     <div>
       {/* ============================================================================================= */}
 
       <BreadCrumbs paths={paths} />
       {/* ============================================================================================= */}
-      <ShopHeader />
+      <ShopHeader title='Browse our categories' />
 
       {/* ============================================================================================= */}
       <Filter />
@@ -45,11 +44,11 @@ export default function AllProducts({ categories, products, attr, tags }) {
         </aside>
         <main>
           <div id='products-container'>
-            {products.map((item) => {
-              return <ProductCard item={item} key={item.id + '_product'} />;
+            {categories.map((item) => {
+              return <CategoryCard item={item} key={item.id + '_category'} />;
             })}
           </div>
-          <Pagination total={products.length} />
+          <Pagination total={categories.length} />
         </main>
       </section>
     </div>
@@ -58,8 +57,6 @@ export default function AllProducts({ categories, products, attr, tags }) {
 
 export async function getServerSideProps(context) {
   const { query } = context;
-  // get products
-  let products = await getProducts(query);
   // get attributes
   let attr = await getAttributes();
   // loop over attributes and get terms
@@ -73,6 +70,6 @@ export async function getServerSideProps(context) {
   // get categories
   let categories = await getProductCategories();
   return {
-    props: { products, categories, attr, tags }, // will be passed to the page component as props
+    props: { categories, attr, tags }, // will be passed to the page component as props
   };
 }

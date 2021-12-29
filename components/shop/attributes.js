@@ -4,7 +4,7 @@ import { toggleFilterBlock } from '../../lib/helper';
 
 export default function Attributes({ attr }) {
   const router = useRouter();
-
+  const { asPath } = router;
   const { attribute_term, attribute } = router.query;
 
   return attr.map((item) => {
@@ -60,7 +60,7 @@ export default function Attributes({ attr }) {
                       pathname: '/shop',
                       query: {
                         ...router.query,
-                        attribute: item.slug == attribute ? null : item.slug,
+                        attribute: item.slug,
                         attribute_term:
                           term.id == attribute_term ? null : term.id,
                       },
