@@ -16,6 +16,7 @@ import Tags from '../../components/shop/tags';
 import Categories from '../../components/shop/categories';
 import Pagination from '../../components/shop/pagination';
 import Filter from '../../components/shop/filter';
+import BreadCrumbs from '../../components/shop/breadcrumbs';
 
 export default function AllProducts({ categories, products, attr, tags }) {
   // ================================================= variables =================================================
@@ -23,15 +24,13 @@ export default function AllProducts({ categories, products, attr, tags }) {
   const router = useRouter();
   console.log(router);
 
+  const paths = [{ title: 'shop', url: '/shop' }];
+
   return (
     <div>
       {/* ============================================================================================= */}
 
-      <div id='breadcrumbs'>
-        <small className='opacity-70'>
-          <Link href='/'>Home</Link> / <Link href='/shop'>Shop</Link>
-        </small>
-      </div>
+      <BreadCrumbs paths={paths} />
       {/* ============================================================================================= */}
       <ShopHeader
         title='Shop'
