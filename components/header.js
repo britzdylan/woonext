@@ -1,8 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../public/logo.svg';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Header() {
+  const [searchQuery, setSearchquery] = useState('');
+  const router = useRouter();
+
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      router.push(`/shop?search=${searchQuery}`);
+    }
+  }
+
   return (
     <nav className='nav hidden lg:block'>
       <div className='container mx-auto flex flex-row items-center justify-center p-0 border-b'>
@@ -31,22 +42,30 @@ export default function Header() {
         <div className='header-actions'>
           <div id='globalSearch'>
             <div className='search'>
-              <input type='text' placeholder='Search products...' />
-              <button>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  className='h-6 w-6 text-gray-600'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'>
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
-                  />
-                </svg>
-              </button>
+              <input
+                onKeyPress={(e) => handleKeyPress(e)}
+                onChange={(e) => setSearchquery(e.target.value)}
+                type='text'
+                placeholder='Search products...'
+                value={searchQuery}
+              />
+              <Link href={`/shop?search=${searchQuery}`}>
+                <button>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='h-6 w-6 text-gray-600'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'>
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+                    />
+                  </svg>
+                </button>
+              </Link>
             </div>
           </div>
           <div className='header-icon '>
