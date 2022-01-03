@@ -26,6 +26,39 @@ body {
 main {
   @apply h-full w-full;
 }
+
+small {
+  display: block;
+}
+
+a {
+  @apply text-blue-500;
+}
+
+button {
+  @apply py-3 px-6 font-bold rounded-2xl my-4;
+}
+
+.btn-primary {
+  @apply bg-blue-500 text-white;
+}
+
+/* =============================== forms ================================== */
+
+label {
+  @apply pb-2 pt-8 block;
+}
+
+input,
+textarea,
+select {
+  @apply block;
+}
+
+.input {
+  @apply py-4 px-4 border-gray-200 outline-none border w-full rounded-lg;
+}
+
 .nav {
   @apply bg-white;
 }
@@ -236,6 +269,8 @@ main {
   @apply bg-blue-500 outline-blue-500;
 }
 
+/* ============= Product ============= */
+
 .product {
   @apply rounded-md bg-gray-100 p-4 text-center flex flex-col items-center;
 }
@@ -264,6 +299,34 @@ main {
   @apply bg-blue-500 text-white;
 }
 
+.product-on-sale-badge {
+  @apply bg-red-600 px-2 py-1  rounded-br-md text-white absolute top-0 left-0;
+}
+
+.product-on-sale-badge > small {
+  @apply text-white font-bold;
+}
+
+.price.sale {
+  @apply mr-2;
+}
+
+/* ============= category Card ============= */
+
+.category-card {
+  @apply rounded-md bg-gray-100 p-4 text-center flex flex-col items-center;
+}
+
+.category-card > img {
+  @apply w-72 mx-auto;
+}
+
+.category-card > button {
+  @apply py-3 px-6 bg-blue-500 w-full text-white font-bold rounded-md mt-12;
+}
+
+/* ============= pagination ============= */
+
 #shop-pagination-container {
   @apply w-full mt-6 border rounded-md flex flex-row items-center justify-between px-6 py-4 mb-8;
 }
@@ -289,28 +352,4 @@ main {
 
 .page-number.active {
   @apply bg-blue-500 text-white cursor-default;
-}
-
-.product-on-sale-badge {
-  @apply bg-red-600 px-2 py-1  rounded-br-md text-white absolute top-0 left-0;
-}
-
-.product-on-sale-badge > small {
-  @apply text-white font-bold;
-}
-
-.price.sale {
-  @apply mr-2;
-}
-
-.category-card {
-  @apply rounded-md bg-gray-100 p-4 text-center flex flex-col items-center;
-}
-
-.category-card > img {
-  @apply w-72 mx-auto;
-}
-
-.category-card > button {
-  @apply py-3 px-6 bg-blue-500 w-full text-white font-bold rounded-md mt-12;
 }
