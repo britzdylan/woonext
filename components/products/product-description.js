@@ -1,3 +1,9 @@
-export default function ProductDescription() {
-  return <div>0</div>;
+export default function ProductDescription({ description }) {
+  return (
+    <div
+      className='prose'
+      dangerouslySetInnerHTML={{
+        __html: description,
+      }}></div>
+  );
 }

@@ -5,7 +5,7 @@ export default function ProductCard({ item }) {
   return (
     <div className='product relative'>
       {item.on_sale ? (
-        <div className='product-on-sale-badge '>
+        <div className='product-on-sale-badge z-50'>
           <small>sale!</small>
         </div>
       ) : null}

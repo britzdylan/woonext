@@ -28,7 +28,7 @@ export default function AllProducts({ categories, products, attr, tags }) {
 
   return (
     <div>
-      {/* ============================================================================================= */}
+      {/* {/* ============================================================================================= */}
 
       <BreadCrumbs paths={paths} />
       {/* ============================================================================================= */}
@@ -74,5 +74,6 @@ export async function getServerSideProps(context) {
   let categories = await getProductCategories();
   return {
     props: { products, categories, attr, tags }, // will be passed to the page component as props
+    // props: { products }, // will be passed to the page component as props
   };
 }

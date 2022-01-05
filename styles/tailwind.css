@@ -5,6 +5,7 @@
 /* FONTS */
 
 * {
+  @apply scroll-smooth;
   font-family: 'Poppins', sans-serif;
   color: #333;
 }
@@ -272,7 +273,7 @@ select {
 /* ============= Product ============= */
 
 .product {
-  @apply rounded-md bg-gray-100 p-4 text-center flex flex-col items-center;
+  @apply rounded-md bg-gray-100 p-4 text-center flex flex-col items-center min-w-[300px];
 }
 
 .product > img {
@@ -352,4 +353,50 @@ select {
 
 .page-number.active {
   @apply bg-blue-500 text-white cursor-default;
+}
+
+/* ============= product images ============= */
+
+.product-images {
+  @apply flex flex-row items-start w-3/6 p-4 border rounded-lg border-gray-200;
+}
+
+.product-additional-images {
+  @apply w-2/12 pr-2;
+}
+
+.product-single-addt-image {
+  @apply mb-2  rounded-2xl  overflow-hidden p-2 cursor-pointer;
+}
+
+.product-main-image {
+  @apply w-10/12 rounded-2xl border-blue-500 overflow-hidden;
+}
+
+/* ============= product info ============= */
+
+.product-info {
+  @apply w-2/6  py-4 pl-16;
+}
+
+.simple-atc {
+  @apply my-8 w-full flex flex-row items-center;
+}
+
+.quantity-select {
+  @apply border border-gray-200 rounded-3xl p-4 w-20 mr-4;
+}
+
+.error {
+  @apply text-red-400 font-medium mb-8;
+}
+
+.product-addt-info-row {
+  @apply flex flex-row items-center last:border-none py-6 border-b border-gray-200;
+}
+
+/* ============= product review ============= */
+
+.product-review-form {
+  @apply my-8 border-t border-gray-200 pt-8;
 }
