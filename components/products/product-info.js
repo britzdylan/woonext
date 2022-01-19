@@ -1,41 +1,61 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import SimpleATC from './ATC/simple';
+import ExternalATC from './ATC/external';
+import VariableATC from './ATC/variable';
 
-export default function ProductInfo({ product }) {
-  const [quantity, setQuantity] = useState(1);
+export default function ProductInfo({ product, variations }) {
   const rating = [1, 2, 3, 4, 5];
+
+  function getProductATC() {
+    switch (product.type) {
+      case 'simple':
+        return <SimpleATC />;
+      case 'external':
+        return (
+          <ExternalATC
+            text={product.button_text}
+            external_url={product.external_url}
+          />
+        );
+      case 'variable':
+        return <VariableATC product={product} variations={variations} />;
+    }
+  }
 
   return (
     <div className='product-info'>
       {/* title */}
 
-      <div className='flex flex-row items-center'>
-        <h1 className='text-3xl font-bold mr-4'>{product.name}</h1>
+      <div className='flex flex-row items-center mb-6'>
+        <h1 className=' text-3xl mr-4'>{product.name}</h1>
       </div>
 
       {/* averagre rating */}
-      <div className='review-stars flex flex-row items-center my-2'>
-        {rating.map((value) =>
-          Number(product.average_rating) >= value ? (
-            <img
-              key={value + '_star-rating-average_'}
-              className='h-4 w-4 mr-2'
-              src='/star.svg'
-            />
-          ) : null
-        )}
-        <a href='#product-details-cotainer'>(Reviews)</a>
-      </div>
+      {product.rating_count > 0 ? (
+        <div className='review-stars flex flex-row items-center mb-6'>
+          {rating.map((value) =>
+            Number(product.average_rating) >= value ? (
+              <img
+                key={value + '_star-rating-average_'}
+                className='h-4 w-4 mr-2'
+                src='/star.svg'
+              />
+            ) : null
+          )}
+
+          <a href='#product-details-cotainer'>(Reviews)</a>
+        </div>
+      ) : null}
 
       {/* product pricing */}
 
-      <div className='flex flex-row items-center'>
+      <div className='flex flex-row items-center mb-6'>
         {product.on_sale ? (
-          <p className='text-2xl text-gray-300 my-4 line-through mr-2'>
+          <p className='text-2xl text-gray-300  line-through mr-2'>
             R {product.regular_price}{' '}
           </p>
         ) : null}
-        <p className='text-2xl my-4'>R {product.price} </p>
+        <p className='text-2xl font-bold'>R {product.price} </p>
         {product.on_sale ? (
           <span className='text-white text-sm p-2 rounded-xl bg-red-600 ml-4'>
             On Sale
@@ -43,44 +63,34 @@ export default function ProductInfo({ product }) {
         ) : null}
       </div>
 
-      {/* product description */}
+      {/* product short description */}
 
       <div
+        className='mb-6'
         dangerouslySetInnerHTML={{
           __html: product.short_description,
         }}></div>
 
       {/* product ATC */}
 
-      <div className='simple-atc '>
-        <input
-          type='number'
-          className='quantity-select'
-          step='1'
-          min='1'
-          name='quantity'
-          title='Qty'
-          size='4'
-          placeholder='1'
-          inputMode='numeric'
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        />
-        <button className='btn-primary'>Add to cart</button>
-      </div>
+      {getProductATC()}
 
       {/* product stock status */}
 
-      {product.stock_status == 'instock' ? (
-        <p className='error'>
-          Only {product.stock_quantity} Items left in Stock
+      {product.stock_status == 'instock' &&
+      product.type == 'simple' &&
+      !product.virtual ? (
+        <p className='error mb-6'>
+          {product.stock_quantity} Items left in Stock
         </p>
       ) : null}
 
       {/* product meta */}
 
       <div className='product-meta'>
-        <small>SKU: {product.sku}</small>
+        {product.type == 'simple' ? (
+          <small>SKU: {product.sku != '' ? product.sku : ''}</small>
+        ) : null}
         <small>
           Categories:{' '}
           {product.categories.length > 0
@@ -91,16 +101,16 @@ export default function ProductInfo({ product }) {
               ))
             : null}
         </small>
-        <small>
-          Tags:{' '}
-          {product.tags.length > 0
-            ? product.tags.map((tag) => (
-                <Link
-                  key={tag.id + '_tag'}
-                  href={`/shop?tag=${tag.id}`}>{`${tag.name}, `}</Link>
-              ))
-            : null}
-        </small>
+        {product.tags.length > 0 ? (
+          <small>
+            Tags:{' '}
+            {product.tags.map((tag) => (
+              <Link
+                key={tag.id + '_tag'}
+                href={`/shop?tag=${tag.id}`}>{`${tag.name}, `}</Link>
+            ))}
+          </small>
+        ) : null}
       </div>
     </div>
   );

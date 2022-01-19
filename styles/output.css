@@ -423,12 +423,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-.border-2, .border-b, .border-t, .input, .filter-container, [id=filter-bar], .quantity-select-label, [id=shop-pagination-container], .product-images, .quantity-select, .product-addt-info-row, .product-review-form {
+.border-2, .border, .border-b, .border-t, .input, .filter-container, [id=filter-bar], .quantity-select-label, [id=shop-pagination-container], .product-images, .quantity-select, .product-addt-info-row, .product-review-form {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
-.blur {
+.blur, .filter {
   --tw-blur: var(--tw-empty,/*!*/ /*!*/);
   --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
   --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
@@ -935,6 +935,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 1rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -953,6 +957,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .block {
@@ -1051,8 +1067,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 0.75rem;
 }
 
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .border-2 {
   border-width: 2px;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-b {
@@ -1164,8 +1192,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.75rem;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-bold {
   font-weight: 700;
+}
+
+.leading-4 {
+  line-height: 1rem;
 }
 
 .text-white {
@@ -1200,6 +1237,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0.7;
 }
 
+.opacity-50 {
+  opacity: 0.5;
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1207,6 +1248,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .blur {
   --tw-blur: blur(8px);
+  filter: var(--tw-filter);
+}
+
+.filter {
   filter: var(--tw-filter);
 }
 
@@ -1878,9 +1923,8 @@ input, textarea, select {
   padding-left: 4rem;
 }
 
-.simple-atc {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.atc {
+  margin-bottom: 1.5rem;
   display: flex;
   width: 100%;
   flex-direction: row;

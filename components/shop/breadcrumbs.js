@@ -10,7 +10,7 @@ export default function BreadCrumbs({ paths }) {
           return (
             <Link key={'bread_crumb_' + `${path.title}`} href={`${path.url}`}>
               <p className='mr-2 cursor-pointer'>
-                <span className='mr-2'>-</span>
+                <span className='mr-2 text-xs'>/</span>
                 {path.title}
               </p>
             </Link>

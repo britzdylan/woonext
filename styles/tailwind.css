@@ -379,8 +379,8 @@ select {
   @apply w-2/6  py-4 pl-16;
 }
 
-.simple-atc {
-  @apply my-8 w-full flex flex-row items-center;
+.atc {
+  @apply mb-6 w-full flex flex-row items-center;
 }
 
 .quantity-select {

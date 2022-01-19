@@ -12,7 +12,7 @@ import ProductInfo from '../../components/products/product-info';
 
 export default function SingleProduct({ data }) {
   const [productDetails, setProductDetails] = useState(0);
-  const { product, related, reviews } = data;
+  const { product, related, reviews, variations } = data;
 
   const paths = [
     { title: 'Shop', url: '/shop' },
@@ -28,7 +28,7 @@ export default function SingleProduct({ data }) {
         {/* Product images */}
         <ProductImages images={product.images} />
         {/* Product info */}
-        <ProductInfo product={product} />
+        <ProductInfo product={product} variations={variations} />
       </main>
       <aside id='product-details-cotainer' className='py-12'>
         <div className='product-tabs'>
@@ -40,14 +40,16 @@ export default function SingleProduct({ data }) {
             }>
             Description
           </button>
-          <button
-            onClick={() => setProductDetails(1)}
-            className={
-              `${productDetails == 1 ? 'bg-blue-500 text-white' : null}` +
-              ' py-3 px-6  font-bold rounded-2xl'
-            }>
-            Additional Information
-          </button>
+          {!product.virtual ? (
+            <button
+              onClick={() => setProductDetails(1)}
+              className={
+                `${productDetails == 1 ? 'bg-blue-500 text-white' : null}` +
+                ' py-3 px-6  font-bold rounded-2xl'
+              }>
+              Additional Information
+            </button>
+          ) : null}
           {product.reviews_allowed ? (
             <button
               onClick={() => setProductDetails(2)}
