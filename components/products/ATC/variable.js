@@ -156,7 +156,7 @@ export default function VariableATC({ variations, product }) {
         />
         <button
           onClick={() => ATC()}
-          disable={!variation ? true : false}
+          disable={!variation ? 'true' : 'false'}
           className={`${!variation ? 'opacity-50' : null}` + ' btn-primary'}>
           Add to cart
         </button>

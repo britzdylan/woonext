@@ -2,12 +2,15 @@ import Link from 'next/link';
 import SimpleATC from './ATC/simple';
 import ExternalATC from './ATC/external';
 import VariableATC from './ATC/variable';
+import GroupedATC from './ATC/grouped';
 
-export default function ProductInfo({ product, variations }) {
+export default function ProductInfo({ product, variations, grouped_products }) {
   const rating = [1, 2, 3, 4, 5];
 
   function getProductATC() {
     switch (product.type) {
+      case 'grouped':
+        return <GroupedATC grouped_products={grouped_products} />;
       case 'simple':
         return <SimpleATC />;
       case 'external':
@@ -50,7 +53,7 @@ export default function ProductInfo({ product, variations }) {
       {/* product pricing */}
 
       <div className='flex flex-row items-center mb-6'>
-        {product.on_sale ? (
+        {product.on_sale && product.type != 'grouped' ? (
           <p className='text-2xl text-gray-300  line-through mr-2'>
             R {product.regular_price}{' '}
           </p>

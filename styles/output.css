@@ -428,7 +428,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
-.blur, .filter {
+.blur {
   --tw-blur: var(--tw-empty,/*!*/ /*!*/);
   --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
   --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
@@ -883,6 +883,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .static {
   position: static;
 }
@@ -959,14 +963,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 0.5rem;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -1027,6 +1023,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   min-width: 150px;
 }
 
+.min-w-\[200px\] {
+  min-width: 200px;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1065,14 +1065,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .rounded-xl {
   border-radius: 0.75rem;
-}
-
-.rounded-md {
-  border-radius: 0.375rem;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
 }
 
 .border-2 {
@@ -1201,10 +1193,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 700;
 }
 
-.leading-4 {
-  line-height: 1rem;
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1248,10 +1236,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .blur {
   --tw-blur: blur(8px);
-  filter: var(--tw-filter);
-}
-
-.filter {
   filter: var(--tw-filter);
 }
 
@@ -1972,6 +1956,21 @@ input, textarea, select {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
   padding-top: 2rem;
+}
+
+/* ============= Grouped Product ============= */
+
+.grouped {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.grouped > p {
+  margin-left: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
 }
 
 .last\:mr-0:last-child {

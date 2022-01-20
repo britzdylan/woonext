@@ -12,7 +12,7 @@ import ProductInfo from '../../components/products/product-info';
 
 export default function SingleProduct({ data }) {
   const [productDetails, setProductDetails] = useState(0);
-  const { product, related, reviews, variations } = data;
+  const { product, related, reviews, variations, grouped_products } = data;
 
   const paths = [
     { title: 'Shop', url: '/shop' },
@@ -28,7 +28,11 @@ export default function SingleProduct({ data }) {
         {/* Product images */}
         <ProductImages images={product.images} />
         {/* Product info */}
-        <ProductInfo product={product} variations={variations} />
+        <ProductInfo
+          grouped_products={grouped_products}
+          product={product}
+          variations={variations}
+        />
       </main>
       <aside id='product-details-cotainer' className='py-12'>
         <div className='product-tabs'>

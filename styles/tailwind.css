@@ -400,3 +400,13 @@ select {
 .product-review-form {
   @apply my-8 border-t border-gray-200 pt-8;
 }
+
+/* ============= Grouped Product ============= */
+
+.grouped {
+  @apply flex flex-row items-center;
+}
+
+.grouped > p {
+  @apply text-lg font-bold ml-4;
+}
